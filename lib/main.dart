@@ -4,6 +4,7 @@ import 'package:weather/model.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather/mongodb.dart';
 import 'package:weather/readData.dart';
+import 'package:weather/temp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: WeatherScreen(),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
@@ -83,8 +85,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       var item = data[index];
                       var date = item['dt_txt'];
                       var temperature = item['main']['temp'];
-                      // var description = item['description'];
-                      // var iconCode = item['iconCode'];
                       return ListTile(
                         title: Text(temperature.toString()),
                       );

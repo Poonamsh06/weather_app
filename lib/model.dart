@@ -134,8 +134,12 @@ class Main {
     feelsLike = json['feels_like'] is int
         ? (json['feels_like'] as int).toDouble()
         : json['feels_like'];
-    tempMin = json['temp_min'];
-    tempMax = json['temp_max'];
+    tempMin = json['temp_min'] is int
+        ? (json['temp_min'] as int).toDouble()
+        : json['temp_min'];
+    tempMax = json['temp_max'] is int
+        ? (json['temp_max'] as int).toDouble()
+        : json['temp_man'];
     pressure = json['pressure']?.toInt();
     seaLevel = json['sea_level']?.toInt();
     grndLevel = json['grnd_level']?.toInt();
@@ -213,7 +217,8 @@ class Wind {
         ? (json['speed'] as int).toDouble()
         : json['speed'];
     deg = json['deg'];
-    gust = json['gust'];
+    gust =
+        json['gust'] is int ? (json['gust'] as int).toDouble() : json['gust'];
   }
 
   Map<String, dynamic> toJson() {
